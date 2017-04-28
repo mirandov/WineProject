@@ -1,0 +1,14 @@
+%h1= @relationship.id
+
+%dl
+  %dt= Relationship.human_attribute_name(:ratio)
+  %dd= @relationship.ratio
+  %dt= Relationship.human_attribute_name(:grape_sort_id)
+  %dd= @relationship.grape_sort_id
+  %dt= Relationship.human_attribute_name(:wine_sort_id)
+  %dd= @relationship.wine_sort_id
+
+
+= link_to 'Показать', edit_relationship_path(@relationship), class: 'btn btn-primary'
+
+= link_to 'Назад', relationships_path, class: 'btn btn-primary'

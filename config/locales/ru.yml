@@ -1,0 +1,98 @@
+ru:
+  app:
+    name: Базовое приложение
+    company:
+      short_name: МПУ
+      department: Кафедра
+    users:
+      index: Список пользователей
+      new-button: Новый пользователь
+      edit: Редактирование пользователя
+      new: Создание пользователя
+    roles:
+      index: Список возможных ролей пользователей
+      new-button: Новая роль
+      edit: Редактирование роли
+      new: Создание роли
+    grape_sorts:
+      index: Список сортов винограда
+      new-button: Новый сорт винограда
+      edit: Редактирование сорта винограда
+      new: Создание сорта винограда
+    wine_sorts:
+      index: Список сортов вин
+      new-button: Новый сорт вина
+      edit: Редактирование сорта вина
+      new: Создание сорта вина
+    relationships:
+      index: Список соотношений
+      new-button: Новое соотношенеие
+      edit: Редактирование соотношенеия
+      new: Создание соотношенеия
+    barrels:
+      index: Список бочек
+      new-button: Новая бочка
+      edit: Редактирование списка бочек
+      new: Создание бочки
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+    sure: Действительно удалить?
+
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+      grape_sort: Сорт винограда
+      wine_sort: Сорт вина
+      relationship: Соотношение вин
+      barrel: Хранящиеся бочки
+    attributes:
+      user:
+        email: Пользовательское имя/электронная почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      grape_sort:
+        name: Название винограда
+        place_of_growth: Место произрастания
+        date_of_collection: Время сбора
+      wine_sort:
+        name: Название вина
+        type_of_wine: Тип
+        color: Цвет
+        barrel_extract: Время выдержки в бочках
+        bottle_extract: Время выдержки в бутылках
+      relationship:
+        ratio: Соотношение
+        grape_sort_id: Сорт винограда
+        wine_sort_id: Сорт вина
+      barrel:
+        location: Местоположение
+        date_of_manufacture: Дата изготовления
+        amount: Объём
+        is_empty: Количество вина
+        date_of_completion: Дата заполнения вином
+        wine_sort_id: Сорт вина
+    errors:
+      models:
+        person:
+          attributes:
+            snils:
+              check_sum: имеет неправильную контрольную сумму

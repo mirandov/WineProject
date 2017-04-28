@@ -1,0 +1,26 @@
+= form_for @wine_sort do |f|
+  - if @wine_sort.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@wine_sort.errors.count, "error")} prohibited this wine_sort from being saved:"
+      %ul
+        - @wine_sort.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :type_of_wine
+    = f.text_field :type_of_wine
+  .field
+    = f.label :color
+    = f.text_field :color
+  .field
+    = f.label :barrel_extract
+    = f.number_field :barrel_extract
+  .field
+    = f.label :bottle_extract
+    = f.number_field :bottle_extract
+  .actions
+    = f.submit 'Сохранить', class: 'btn btn-primary'
+    %p

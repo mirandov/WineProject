@@ -1,0 +1,17 @@
+%h1= @wine_sort.name
+
+%dl
+  %dt= WineSort.human_attribute_name(:name)
+  %dd= @wine_sort.name
+  %dt= WineSort.human_attribute_name(:type_of_wine)
+  %dd= @wine_sort.type_of_wine
+  %dt= WineSort.human_attribute_name(:color)
+  %dd= @wine_sort.color
+  %dt= WineSort.human_attribute_name(:barrel_extract)
+  %dd= @wine_sort.barrel_extract
+  %dt= WineSort.human_attribute_name(:bottle_extract)
+  %dd= @wine_sort.bottle_extract
+
+= link_to 'Показать', edit_wine_sort_path(@wine_sort),  class: 'btn btn-primary'
+
+= link_to 'Назад', wine_sorts_path, class: 'btn btn-primary'

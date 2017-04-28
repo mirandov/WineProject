@@ -1,0 +1,30 @@
+= form_for @barrel do |f|
+  - if @barrel.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@barrel.errors.count, "error")} prohibited this barrel from being saved:"
+      %ul
+        - @barrel.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :date_of_manufacture
+    = f.date_select :date_of_manufacture
+  .field
+    = f.label :amount
+    = f.text_field :amount
+  .field
+    = f.label :is_empty
+    = f.select :is_empty, ["Пустая", "Не пустая"]
+  .field
+    = f.label :date_of_completion
+    = f.date_select :date_of_completion
+  .field
+    = f.label :wine_sort_id
+    = f.text_field :wine_sort_id
+
+  .actions
+    = f.submit 'Сохранить', class: 'btn btn-primary'
+    %p
