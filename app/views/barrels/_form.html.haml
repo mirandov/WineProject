@@ -23,7 +23,8 @@
     = f.date_select :date_of_completion
   .field
     = f.label :wine_sort_id
-    = f.text_field :wine_sort_id
+    = f.select :wine_sort_id,
+    options_for_select(WineSort.all.map{ |g| [g.name + " " + g.color + " " + g.type_of_wine, g.id] })
 
   .actions
     = f.submit 'Сохранить', class: 'btn btn-primary'
