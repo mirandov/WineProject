@@ -6,6 +6,6 @@ class WineSort < ActiveRecord::Base
   validates :color, length:{in: 0..30}
   validates :type_of_wine, inclusion: {in: ['Сухое','Полусухое','Полусладкое','Сладкое','Ликёрное', 'Другое']}
   validates :barrel_extract, :bottle_extract, numericality: {greater_than_or_equal_to: 0 }
-
+  
 
 end

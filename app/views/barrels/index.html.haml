@@ -24,7 +24,7 @@
         %td= barrel.amount
         %td= barrel.is_empty
         %td= barrel.date_of_completion
-        %td= barrel.wine_sort_id
+        %td= barrel.wine_sort.name + ',' + barrel.wine_sort.type_of_wine
         %td
           = link_to barrel, class: 'btn btn-success' do
             = fa_icon :eye

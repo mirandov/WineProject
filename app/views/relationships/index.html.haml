@@ -17,8 +17,8 @@
     - @relationships.each do |relationship|
       %tr
         %td= relationship.ratio
-        %td= relationship.grape_sort
-        %td= relationship.wine_sort
+        %td= relationship.grape_sort.name + ',' + relationship.grape_sort.place_of_growth
+        %td= relationship.wine_sort.name + ',' + relationship.wine_sort.type_of_wine
         %td
           = link_to relationship, class: 'btn btn-success' do
             = fa_icon :eye
