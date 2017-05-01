@@ -11,7 +11,8 @@
     = f.text_field :name
   .field
     = f.label :type_of_wine
-    = f.text_field :type_of_wine
+    = f.select :type_of_wine,
+    ['Сухое','Полусухое','Полусладкое','Сладкое','Ликёрное']
   .field
     = f.label :color
     = f.text_field :color
