@@ -46,12 +46,14 @@ ActiveRecord::Schema.define(version: 20170426131009) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "grape_sorts", force: :cascade do |t|
-    t.string   "name",               limit: 64, null: false
-    t.string   "place_of_growth",    limit: 64, null: false
-    t.date     "date_of_collection",            null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "name",               null: false
+    t.string   "place_of_growth",    null: false
+    t.date     "date_of_collection", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
+
+  add_index "grape_sorts", ["name", "place_of_growth", "date_of_collection"], name: "my_index", unique: true, using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.string   "ratio",         null: false
@@ -136,6 +138,8 @@ ActiveRecord::Schema.define(version: 20170426131009) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  add_index "wine_sorts", ["name", "type_of_wine", "color", "barrel_extract", "bottle_extract"], name: "my_index1", unique: true, using: :btree
 
   add_foreign_key "barrels", "wine_sorts"
   add_foreign_key "relationships", "grape_sorts"

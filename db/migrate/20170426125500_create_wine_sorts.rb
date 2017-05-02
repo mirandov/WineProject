@@ -6,7 +6,7 @@ class CreateWineSorts < ActiveRecord::Migration
       t.string :color, null: false, limit: 30
       t.integer :barrel_extract, null: false
       t.integer :bottle_extract, null: false
-
+      t.index [:name, :type_of_wine, :color, :barrel_extract, :bottle_extract], unique: true, name: :my_index1
       t.timestamps null: false
     end
   end

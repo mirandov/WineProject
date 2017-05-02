@@ -22,6 +22,13 @@ ru2 = RoleUser.create(role: r2, user: u2)
 
   g4 = GrapeSort.create!(name: 'Трусо', place_of_growth: 'Испания', date_of_collection: '01.07.1996')
 
+  g5 = GrapeSort.create!(name: 'Аспиран', place_of_growth: 'Франция', date_of_collection: '01.02.2001')
+  g6 = GrapeSort.create!(name: 'Аспиран', place_of_growth: 'Франция', date_of_collection: '01.07.1996')
+  g7 = GrapeSort.create!(name: 'Аспиран', place_of_growth: 'Италия', date_of_collection: '01.07.1996')
+  g8 = GrapeSort.create!(name: 'Кишмиш', place_of_growth: 'Италия', date_of_collection: '01.07.1996')
+
+
+
 
 #------------------------------------------------------------------------------#
 #Сорт вина
@@ -37,7 +44,8 @@ ru2 = RoleUser.create(role: r2, user: u2)
 
   w4 = WineSort.create!(name: 'Мерло', type_of_wine: 'Полусухое',
    color: 'Красное', barrel_extract: '3', bottle_extract: '4')
-
+  w4 = WineSort.create!(name: 'Мерло', type_of_wine: 'Полусухое',
+   color: 'Белое', barrel_extract: '3', bottle_extract: '4')
 
 #------------------------------------------------------------------------------#
 #Бочки
