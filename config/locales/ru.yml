@@ -94,7 +94,7 @@ ru:
       relationship: Укажите долю винограда в вине
       barrel: Укажите характеристики бочки
       wine_sort_new: Укажите параметры вина
-      wine_sort: Создайте новый сорт вина 
+      wine_sort: Создайте новый сорт вина
     barrel_search:
       form:
         barrel: По атрибутам бочек
@@ -162,3 +162,13 @@ ru:
           attributes:
             snils:
               check_sum: имеет неправильную контрольную сумму
+      # nested_start
+      role_user: &role_users
+      # nested_finish
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      # nested_start
+      user/role_users:
+        <<: *role_users
+      # nested_finish
