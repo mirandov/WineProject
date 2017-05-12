@@ -1,0 +1,18 @@
+%h3= t('forms.form.relationship')
+.row
+  .col-md-4
+    .form-group
+      = pf.label :ratio
+      = pf.text_field :ratio, {class: 'form-control'}
+      = pf.hidden_field :grape_sort_id
+%h2 Выберете или создайте сорт винограда!
+%h3 Выберите виноград
+.row
+  .col-md-4
+    .form-group
+      = pf.label :grape_sort_id
+      = pf.select :grape_sort_id, GrapeSort.all.map{|t| [t.name, t.id]},
+      {include_blank: true}, {class: 'form-control'}
+= pf.fields_for :grape_sort do |qf|
+  = qf.hidden_field :id
+  = render('wine_sorts/grape_sort_relationships_wine_sort_form', qf: qf)
