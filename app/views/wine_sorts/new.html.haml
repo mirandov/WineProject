@@ -1,4 +1,12 @@
-%h1= t('app.wine_sorts.new')
+=breadcrumb_tag do
+  %li.active
+    = t('headers.wine_sorts.new')
+  %li
+    =link_to 'Вина', wine_sorts_path
+  %li
+    Информация о вине
+
+%h1= t('headers.wine_sorts.new')
 
 = render 'form'
 

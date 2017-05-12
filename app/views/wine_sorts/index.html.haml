@@ -1,34 +1,39 @@
-%h1= t('app.wine_sorts.index')
+=breadcrumb_tag do
+  %li.active
+    Вина
+  %li
+    Информация о вине
+.page-header
+  %h1= t('headers.wine_sorts.index')
 
-%table.table.table-hover.table-striped.center
-  %caption
-    .pull-right
-      = link_to t('app.wine_sorts.new-button'), new_wine_sort_path, class: 'btn btn-primary'
-  %thead
-    %tr
-      %th= WineSort.human_attribute_name(:name)
-      %th= WineSort.human_attribute_name(:type_of_wine)
-      %th= WineSort.human_attribute_name(:color)
-      %th= WineSort.human_attribute_name(:barrel_extract)
-      %th= WineSort.human_attribute_name(:bottle_extract)
-      %th.p50
-      %th.p50
-      %th.p50
-
-  %tbody
-    - @wine_sorts.each do |wine_sort|
-      %tr
-        %td= wine_sort.name
-        %td= wine_sort.type_of_wine
-        %td= wine_sort.color
-        %td= wine_sort.barrel_extract
-        %td= wine_sort.bottle_extract
-        %td
-          = link_to wine_sort, class: 'btn btn-success' do
-            = fa_icon :eye
-        %td
-          = link_to edit_wine_sort_path(wine_sort), class: 'btn btn-info' do
-            = fa_icon :edit
-        %td
-          = link_to wine_sort, :method => :delete, :data => { :confirm => t('helpers.sure') }, class: 'btn btn-danger' do
-            = fa_icon :times
+.row
+  = link_to new_wine_sort_path, class: 'btn btn-success' do
+    = fa_icon :plus
+    = t('buttons.new.wine_sort')
+.row
+  - @wine_sorts.each do |wine_sort|
+    .col-xs-6
+      .well.center
+        %dl
+          %dt= WineSort.human_attribute_name(:name)
+          %dd= wine_sort.name
+          %dt= WineSort.human_attribute_name(:type_of_wine)
+          %dd= wine_sort.type_of_wine
+          %dt= WineSort.human_attribute_name(:color)
+          %dd= wine_sort.color
+          %dt= WineSort.human_attribute_name(:barrel_extract)
+          %dd= wine_sort.barrel_extract
+          %dt= WineSort.human_attribute_name(:bottle_extract)
+          %dd= wine_sort.bottle_extract
+          %dd
+            = link_to wine_sort, class: 'btn btn-warning' do
+              = fa_icon :eye
+              = t('buttons.show')
+            = link_to edit_wine_sort_path(wine_sort), class: 'btn btn-info' do
+              = fa_icon :edit
+              = t('buttons.edit')
+            = link_to wine_sort, :method => :delete,
+            :data => { :confirm => t('buttons.confirm.wine_sort') },
+            class: 'btn btn-danger' do
+              = fa_icon :times
+              = t('buttons.destroy')

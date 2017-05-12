@@ -1,6 +1,9 @@
 class WineSortsController < ApplicationController
   before_action :set_wine_sort, only: [:show, :edit, :update, :destroy]
 
+
+
+
   # GET /wine_sorts
   # GET /wine_sorts.json
   def index
@@ -15,6 +18,7 @@ class WineSortsController < ApplicationController
   # GET /wine_sorts/new
   def new
     @wine_sort = WineSort.new
+    @wine_sort.relationships.build.build_grape_sort
   end
 
   # GET /wine_sorts/1/edit
@@ -69,6 +73,8 @@ class WineSortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wine_sort_params
-      params.require(:wine_sort).permit(:name, :type_of_wine, :color, :barrel_extract, :bottle_extract)
+      params.require(:wine_sort).permit(:name, :type_of_wine, :color, :barrel_extract,
+      :bottle_extract, relationships_attributes: [:ratio, :grape_sort_id, :wine_sort_id,
+      grape_sort_attributes:[:id,:name, :place_of_growth, :date_of_collection]])
     end
 end

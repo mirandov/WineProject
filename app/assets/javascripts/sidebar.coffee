@@ -11,3 +11,5 @@ $(document).ready ready
 $(document).on 'page:load', ready
 $(document).ready togglef
 $(document).on 'page:load', togglef
+$(document).on 'turbolinks:load', ready
+$(document).on 'turbolinks:load', togglef

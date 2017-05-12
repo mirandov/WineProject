@@ -11,6 +11,7 @@ end
 r1, r2 = Role.create_main_roles
 ru1 = RoleUser.create(role: r1, user: u1)
 ru2 = RoleUser.create(role: r2, user: u2)
+ru2 = RoleUser.create(role: r2, user: u2)
 #------------------------------------------------------------------------------#
 #Сорта винограда
 

@@ -1,10 +1,20 @@
 class BarrelsController < ApplicationController
   before_action :set_barrel, only: [:show, :edit, :update, :destroy]
 
+  def search
+    if params.has_key?('search')
+      @barrels = Barrel.search(params['search'])
+    else
+      @barrels = []
+    end
+    params['search'] ||= {}
+
+  end
   # GET /barrels
   # GET /barrels.json
   def index
     @barrels = Barrel.all
+    @wine_sorts = WineSort.all
   end
 
   # GET /barrels/1
@@ -15,10 +25,16 @@ class BarrelsController < ApplicationController
   # GET /barrels/new
   def new
     @barrel = Barrel.new
+    @barrel.build_wine_sort
+    @wine_sort = WineSort.all
   end
+
 
   # GET /barrels/1/edit
   def edit
+    @barrel.build_wine_sort
+    @wine_sort = WineSort.all
+
   end
 
   # POST /barrels
@@ -26,8 +42,13 @@ class BarrelsController < ApplicationController
   def create
     @barrel = Barrel.new(barrel_params)
 
+
+
+    # @wine_sorts = []
+    # (params[:barrel][:wine_sort]).each{|a| @wine_sorts << WineSort.find(a) if a.present?}
     respond_to do |format|
       if @barrel.save
+        # @wine_sorts.each{|a| a.barrels << @barrel if !(@barrel.wine_sort.include?(@wine_sort))}
         format.html { redirect_to @barrel, notice: 'Barrel was successfully created.' }
         format.json { render :show, status: :created, location: @barrel }
       else
@@ -69,6 +90,8 @@ class BarrelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barrel_params
-      params.require(:barrel).permit(:location, :date_of_manufacture, :amount, :is_empty, :date_of_completion, :wine_sort_id)
+      params.require(:barrel).permit(:location, :date_of_manufacture, :amount, :is_empty,
+      :date_of_completion,:wine_sort_id, wine_sort_attributes:[:name,
+      :type_of_wine, :color, :barrel_extract, :bottle_extract,:id, :_destroy])
     end
 end
