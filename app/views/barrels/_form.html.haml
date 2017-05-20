@@ -11,15 +11,15 @@
       .col-md-6
         .form-group
           = f.label :wine_sort_id
-          = f.select :wine_sort_id, WineSort.all.map{|t| [t.name, t.id]},
+          = f.select :wine_sort_id, options_for_select(WineSort.all.map{|t| [t.name, t.id]} + [[@barrel.new_record? ? "*Создание нового" : "*Редактирование"]]),
           {include_blank: true}, {class: 'form-control'}
 
 
 
 
-    = f.fields_for :wine_sort do |pf|
-      -# = pf.hidden_field :id
-      = render('barrels/wine_sort_barrel_form', pf: pf)
+    = f.fields_for :wine_sort, f.object.wine_sort || f.object.build_wine_sort do |pf|
+      %fieldset#wine_sort-fieldset{"data-content" => "#{render "wine_sort_barrel_form", pf: pf}"}
+        %div#wine_sort-fields
 
     %h3= t('forms.form.barrel')
     .row
@@ -57,6 +57,7 @@
             class: 'form-control')
             %span.input-group-addon
               %span.glyphicon.glyphicon-calendar
-  .actions
-    = f.submit 'Сохранить', class: 'btn btn-primary'
-    %p
+
+    .actions
+      = f.submit 'Сохранить', class: 'btn btn-primary', id: 'save'
+  %p

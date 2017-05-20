@@ -80,7 +80,8 @@ ru2 = RoleUser.create(role: r2, user: u2)
 
    relation1 = Relationship.create!(ratio: '30%', grape_sort: g1, wine_sort: w1)
 
-   relation2 = Relationship.create!(ratio: '70%', grape_sort: g2, wine_sort: w1)
+   relation2 = Relationship.create!(ratio: '20%', grape_sort: g2, wine_sort: w1)
+   relation22 = Relationship.create!(ratio: '50%', grape_sort: g4, wine_sort: w1)
 
    relation3 = Relationship.create!(ratio: '60%', grape_sort: g1, wine_sort: w2)
 

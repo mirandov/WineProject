@@ -38,14 +38,20 @@
           = f.number_field :bottle_extract, {class: 'form-control'}
           = f.error_messages_for(:bottle_extract)
 
+  -# .actions
+  -#   = f.submit 'Сохранить', class: 'btn btn-primary', id: 'save'
 
-    = f.fields_for :relationships do |pf|
-      = pf.hidden_field :wine_sort_id
-      = render('wine_sorts/relationships_wine_sort_form', pf: pf)
-
-
-
+  .row.bottom20
+    .col-md-12
+      = link_to_add_grape_sort(f, f.object)
+  - i = 0
+  = f.fields_for(:relationships) do |pf|
+    -# Скрытое поле - id связи роль-пользователь. Иначе все связи будут
+    -# новыми
+    = pf.hidden_field(:id)
+    -# Чтобы не повторять код, выделяем его часть в отдельный файл
+    = render('wine_sorts/relationships_wine_sort_form', pf: pf, i: i+1)
+  - # nested_finish
 
   .actions
-    = f.submit 'Сохранить', class: 'btn btn-primary'
-    %p
+    = f.submit 'Сохранить', class: 'btn btn-primary', id: 'save'

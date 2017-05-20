@@ -1,6 +1,6 @@
 class Barrel < ActiveRecord::Base
   belongs_to :wine_sort
-  accepts_nested_attributes_for :wine_sort, reject_if: proc{ |attributes| attributes['wine_sort_id'].blank?}, allow_destroy: true
+  accepts_nested_attributes_for :wine_sort, allow_destroy: true
 
   validates :location, :date_of_manufacture, :amount, :is_empty, :date_of_completion,  presence: true
   validates :is_empty, inclusion: {in: ['Пустая','Не пустая']}

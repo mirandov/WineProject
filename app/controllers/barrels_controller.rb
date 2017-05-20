@@ -1,5 +1,8 @@
 class BarrelsController < ApplicationController
   before_action :set_barrel, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: [ :search]
+  before_action -> {check_role('admin', 'operator')}, except: [ :search]
+
 
   def search
     if params.has_key?('search')
@@ -14,7 +17,6 @@ class BarrelsController < ApplicationController
   # GET /barrels.json
   def index
     @barrels = Barrel.all
-    @wine_sorts = WineSort.all
   end
 
   # GET /barrels/1
@@ -25,15 +27,15 @@ class BarrelsController < ApplicationController
   # GET /barrels/new
   def new
     @barrel = Barrel.new
-    @barrel.build_wine_sort
-    @wine_sort = WineSort.all
+    # @barrel.build_wine_sort
+    # @wine_sort = WineSort.all
   end
 
 
   # GET /barrels/1/edit
   def edit
-    @barrel.build_wine_sort
-    @wine_sort = WineSort.all
+    # @barrel.build_wine_sort
+    # @wine_sort = WineSort.all
 
   end
 

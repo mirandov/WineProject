@@ -69,6 +69,7 @@ class RelationshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relationship_params
-      params.require(:relationship).permit(:ratio, :grape_sort_id, :wine_sort_id)
+      params.require(:relationship).permit(:ratio, :grape_sort_id, :wine_sort_id,
+      grape_sort_attributes: [:id, :_destroy, :name, :place_of_growth, :date_of_collection])
     end
 end

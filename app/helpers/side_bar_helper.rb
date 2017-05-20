@@ -9,7 +9,7 @@ module SideBarHelper
       :controller => :welcome,
       :action => :index
     }
-
+    if ru.try(:is_admin?)
       result << {
         :name => 'Администрирование',
         :icon => 'users',
@@ -26,7 +26,8 @@ module SideBarHelper
          :icon => 'align-center',
          :class => 'long'},
       ]}
-    
+    end
+    if (ru.try(:is_admin?) or ru.try(:is_operator?))
     result << {
       :name => 'Информация о вине',
       :icon => 'info-circle',
@@ -40,6 +41,7 @@ module SideBarHelper
        :icon => 'trash',
        :class => 'long'}
     ]}
+  end
     result << {
       :name => 'Поиск',
       :icon => 'search',
@@ -52,7 +54,7 @@ module SideBarHelper
 
   def is_open?(ctr, act)
     case ctr.to_s
-    when 'users', 'roles'
+    when 'users', 'roles', 'wine_sorts', 'barrels'
       ctr.to_s == controller_name.to_s
     else
       false
