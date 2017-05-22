@@ -19,8 +19,9 @@
           .form-group
             = pf.label :grape_sort_id
             = pf.select :grape_sort_id, options_for_select(GrapeSort.all.map{|t| [t.name + ' ' + t.place_of_growth + ' ' + t.date_of_collection.to_s, t.id]}),
-            {include_blank: true}, {class: 'form-control'}
+            {include_blank: true}, {class: 'form-control select_grape', id: 'gsid'}
 
       = pf.fields_for :grape_sort, pf.object.grape_sort || pf.object.build_grape_sort do |qf|
         %fieldset#grape_sort-fieldset{"data-content" => "#{render "grape_sort_relationships_wine_sort_form", qf: qf}"}
           %div#grape_sort-fields
+      .row

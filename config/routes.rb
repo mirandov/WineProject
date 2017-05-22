@@ -5,9 +5,9 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :relationships
+  # resources :relationships
   resources :wine_sorts
-  resources :grape_sorts
+  # resources :grape_sorts
   resources :role_users
   resources :roles
   resources :password_resets
