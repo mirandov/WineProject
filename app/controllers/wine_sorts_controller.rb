@@ -10,7 +10,7 @@ class WineSortsController < ApplicationController
   # GET /wine_sorts.json
   def index
     @wine_sorts = WineSort.all
-    # @relationships = Relationship.all
+    @relationships = Relationship.all
 
   end
 

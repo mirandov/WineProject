@@ -52,6 +52,6 @@
     -# Чтобы не повторять код, выделяем его часть в отдельный файл
     = render('wine_sorts/relationships_wine_sort_form', pf: pf, i: i+1)
   - # nested_finish
-
+  .row
   .actions
     = f.submit 'Сохранить', class: 'btn btn-primary', id: 'save'
