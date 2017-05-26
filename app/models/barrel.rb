@@ -11,20 +11,26 @@ class Barrel < ActiveRecord::Base
   validate :date_of_manufacture_cannot_be_more_than_date_of_completion
 
   def date_of_manufacture_cannot_be_in_the_future
-    if date_of_manufacture > Date.today
-      errors.add(:date_of_manufacture, "не может быть установленна будущим временем")
+    unless date_of_manufacture.nil?
+      if date_of_manufacture > Date.today
+        errors.add(:date_of_manufacture, "не может быть установленна будущим временем")
+      end
     end
   end
 
   def date_of_completion_cannot_be_in_the_future
-    if date_of_completion > Date.today
-      errors.add(:date_of_completion, "не может быть установленна будущим временем")
+    unless date_of_completion.nil?
+      if date_of_completion > Date.today
+        errors.add(:date_of_completion, "не может быть установленна будущим временем")
+      end
     end
   end
 
   def date_of_manufacture_cannot_be_more_than_date_of_completion
-    if date_of_completion < date_of_manufacture
-      errors.add(:date_of_completion, "не может быть раньше даты изготовления")
+    unless date_of_completion.nil?
+        if date_of_completion < date_of_manufacture
+          errors.add(:date_of_completion, "не может быть раньше даты изготовления")
+        end
     end
   end
 
@@ -72,12 +78,6 @@ class Barrel < ActiveRecord::Base
      if params['date_of_collection'].present?
        result = result.where(grape_sorts: {date_of_collection: params['date_of_collection']})
      end
-
-
      result.all
   end
-
-  # def data=(value)
-  #  self[:data] = {data: value}
-  # end
 end

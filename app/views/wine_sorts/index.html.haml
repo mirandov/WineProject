@@ -13,7 +13,7 @@
 .row
   - @wine_sorts.each do |wine_sort|
     .col-xs-6
-      .well.center
+      .well
         %dl
           %dt= WineSort.human_attribute_name(:name)
           %dd= wine_sort.name

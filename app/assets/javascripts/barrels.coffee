@@ -19,8 +19,11 @@ insert_form = ->
     $("#barrel_wine_sort_attributes_bottle_extract").val('')
   else if ($('#barrel_wine_sort_id').val() == '*Редактирование')
     $("#wine_sort-fields").html(f)
+  else if ($('#barrel_wine_sort_id').val() == '')
+    $("#wine_sort-fields").html("Без вина")
   else
-    $("#wine_sort-fields").html("Выбрана существующая бочка")
+    $("#wine_sort-fields").html("Выбрано существующее вино")
+
 
 ready = ->
   insert_form()
