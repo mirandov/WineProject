@@ -14,7 +14,7 @@ insert_form = ->
     $('select', this).change -> insert_form()
     if ($('select', this).val() == '*Создание нового')
       $('.grape_sort-fields', this).html(f)
-      $('.grape_sort-fields input', this).val('')
+      # $('.grape_sort-fields input', this).val('')
       datepicker_activation()
     else if ($('select', this).val() == '*Редактирование')
       $('.grape_sort-fields', this).html(f)

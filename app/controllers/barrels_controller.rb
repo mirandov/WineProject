@@ -11,8 +11,11 @@ class BarrelsController < ApplicationController
       @barrels = []
     end
     params['search'] ||= {}
+    @old_is_empty=params.has_key?('search') ? params[:search][:is_empty] : ""
+    @old_type_of_wine=params.has_key?('search') ? params[:search][:type_of_wine] : ""
 
   end
+
   # GET /barrels
   # GET /barrels.json
   def index

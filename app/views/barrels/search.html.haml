@@ -39,7 +39,7 @@
       .col-md-4
         .form-group
         = Barrel.human_attribute_name(:is_empty)
-        = select_tag 'search[is_empty]', options_for_select(Barrel.all.map{|x| [x.is_empty]}.uniq),
+        = select_tag 'search[is_empty]', options_for_select((Barrel.all.map{|x| [x.is_empty]}.uniq),@old_is_empty),
           {include_blank: true, class: 'form-control'}
 
 
@@ -48,7 +48,7 @@
       .col-md-4
         .form-group
         = WineSort.human_attribute_name(:type_of_wine)
-        = select_tag 'search[type_of_wine]',options_for_select(WineSort.all.map{|x| [x.type_of_wine]}.uniq),
+        = select_tag 'search[type_of_wine]',options_for_select((WineSort.all.map{|x| [x.type_of_wine]}.uniq),@old_type_of_wine),
           {include_blank: true, class: 'form-control'}
 
       .col-md-4

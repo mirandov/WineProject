@@ -29,7 +29,7 @@ module SideBarHelper
     end
     if (ru.try(:is_admin?) or ru.try(:is_operator?))
     result << {
-      :name => 'Погреб',
+      :name => 'Информация о вине',
       :icon => 'info-circle',
       :children => [
       {:name => 'Сорта вин',
