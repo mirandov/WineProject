@@ -140,6 +140,7 @@ ru:
         place_of_growth: Место произрастания
         date_of_collection: Время сбора
       wine_sort:
+        relationships_ratio: Доля винограда в вине
         name: Название вина
         type_of_wine: Тип
         color: Цвет
@@ -156,6 +157,20 @@ ru:
         is_empty: Количество вина
         date_of_completion: Дата заполнения вином
         wine_sort_id: Сорт вина
+      grape_sort: &grape_sorts
+        name: Название винограда
+        place_of_growth: Место произрастания
+        date_of_collection: Время сбора
+      relationship: &relationships
+        grape_sort_name: Название винограда
+        ratio: Доля винограда в вине
+        grape_sort_id: Сорт винограда
+      wine_sort/relationships/grape_sort:
+        <<: *grape_sorts
+      wine_sort/relationships:
+        <<: *relationships
+
+
     errors:
       models:
         person:
@@ -163,13 +178,12 @@ ru:
             snils:
               check_sum: имеет неправильную контрольную сумму
       # nested_start
-      role_user: &role_users
+        role_user: &role_users
+        # nested_finish
+          role: Роль
+          role_id: Роль
+          data: Параметры
+        # nested_start
+        user/role_users:
+          <<: *role_users
       # nested_finish
-        role: Роль
-        role_id: Роль
-        data: Параметры
-      # nested_start
-      user/role_users:
-        <<: *role_users
-      # nested_finish
-      

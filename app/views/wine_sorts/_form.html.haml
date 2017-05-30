@@ -38,5 +38,6 @@
       = link_to 'Назад', wine_sorts_path, class: 'btn btn-primary'
   - i = 0
   = f.fields_for(:relationships) do |pf|
+    -# = error_messages_for @wine_sort.relationship
     = pf.hidden_field(:id)
     = render('wine_sorts/relationships_wine_sort_form', pf: pf, i: i+1)
