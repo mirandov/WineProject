@@ -39,16 +39,14 @@ module SideBarHelper
       {:name => 'Бочки',
        :controller => :barrels, :action => :index,
        :icon => 'trash',
+       :class => 'long'},
+      {:name => 'Поиск',
+       :icon => 'search',
+       :controller => :barrels,
+       :action => :search,
        :class => 'long'}
     ]}
   end
-    result << {
-      :name => 'Поиск',
-      :icon => 'search',
-      :controller => :barrels,
-      :action => :search,
-      :class => 'long'
-      }
     result
   end
 

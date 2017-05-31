@@ -20,8 +20,8 @@
             %div.select_form
               = pf.label :grape_sort_id
               = pf.select :grape_sort_id,
-              options_for_select(GrapeSort.all.map{|t| [t.name + ' ' + t.place_of_growth + ' ' + t.date_of_collection.to_s, t.id]} + ["*Создание нового", "*Редактирование"],
-              pf.object.new_record? ? "*Создание нового" : "*Редактирование"),
+              options_for_select((GrapeSort.all.map{|t| [t.name + ' ' + t.place_of_growth + ' ' + t.date_of_collection.to_s, t.id]} + (pf.object.new_record? ? ["*Создание нового"] : ["*Создание нового", "*Редактирование"])),
+              (pf.object.grape_sort_id.nil? ? "*Создание нового" : pf.object.grape_sort_id)),
               {}, {class: 'form-control'}
 
               = pf.fields_for :grape_sort, pf.object.grape_sort || pf.object.build_grape_sort do |qf|

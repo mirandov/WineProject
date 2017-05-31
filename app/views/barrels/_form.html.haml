@@ -3,7 +3,7 @@
 
   .well
 
-    %h3= t('forms.form.barrel')
+
     .row
       .col-md-4
         .form-group
@@ -43,19 +43,17 @@
               %span.glyphicon.glyphicon-calendar
           = f.error_messages_for(:date_of_completion)
 
-    .well
-      %h4 Выберите существующее вино (или создайте новое):
-      .row
-        .col-md-6
-          .form-group
-            = f.label :wine_sort_id
-            = f.select :wine_sort_id,
-            options_for_select((WineSort.all.map{|t| ["#{t.name}, #{t.type_of_wine}, #{t.color}, [выдержка(бочка/бутылка):#{t.barrel_extract.to_s}/#{t.bottle_extract.to_s}]", t.id]}), f.object.wine_sort_id),
-            {include_blank: true}, {class: 'form-control'}
+    .row
+      .col-md-6
+        .form-group
+          = f.label :wine_sort_id
+          = f.select :wine_sort_id,
+          options_for_select((WineSort.all.map{|t| ["#{t.name}, #{t.type_of_wine}, #{t.color}, [выдержка(бочка/бутылка):#{t.barrel_extract.to_s}/#{t.bottle_extract.to_s}]", t.id]}), f.object.wine_sort_id),
+          {include_blank: true}, {class: 'form-control'}
       -# = f.fields_for :wine_sort, f.object.wine_sort || f.object.build_wine_sort do |pf|
       -#   %fieldset#wine_sort-fieldset{"data-content" => "#{render "wine_sort_barrel_form", pf: pf}"}
       -#     %div#wine_sort-fields
 
-    .actions
-      = f.submit 'Сохранить', class: 'btn btn-primary', id: 'save'
+  .actions
+    = f.submit 'Сохранить', class: 'btn btn-primary', id: 'save'
   %p

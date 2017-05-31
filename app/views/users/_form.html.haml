@@ -42,9 +42,10 @@
         = link_to_add_role(f, f.object)
     - i = 0
     = f.fields_for(:role_users) do |fr|
+      - i+=1
       -# Скрытое поле - id связи роль-пользователь. Иначе все связи будут
       -# новыми
       = fr.hidden_field(:id)
       -# Чтобы не повторять код, выделяем его часть в отдельный файл
-      = render('users/one_role_user_form', fr: fr, i: i + 1)
+      = render('users/one_role_user_form', fr: fr, i: i)
     - # nested_finish
