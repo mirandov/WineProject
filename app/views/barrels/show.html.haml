@@ -27,10 +27,10 @@
     .row
       .col-md-6
         %dt= Barrel.human_attribute_name(:date_of_completion)
-        %dd= @barrel.date_of_completion
+        %dd= @barrel.date_of_completion.nil? ? " - " : (@barrel.date_of_completion)
       .col-md-6
         %dt= Barrel.human_attribute_name(:wine_sort_id)
-        %dd= (@barrel.wine_sort.nil? ? "" : (@barrel.wine_sort.name + ',' + @barrel.wine_sort.type_of_wine))
+        %dd= (@barrel.wine_sort.nil? ? " - " : (@barrel.wine_sort.name + ',' + @barrel.wine_sort.type_of_wine))
     .row
       .col-md-6
         %dt= "Порядовый номер бочки"
@@ -67,6 +67,9 @@
             .col-md-6
               %dt= Relationship.human_attribute_name(:ratio)
               %dd= i.ratio
+    -else
+      %h4= "Бочка пустая!"
+
 = link_to 'Править', edit_barrel_path(@barrel), class: 'btn btn-primary'
 
 = link_to 'Назад', barrels_path, class: 'btn btn-primary'

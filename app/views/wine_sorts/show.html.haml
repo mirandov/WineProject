@@ -33,7 +33,7 @@
 
 
     %dl
-    %h3= "Из какого винограда сделаног вино"
+    %h3= "Из какого винограда сделано вино"
     - grape = @wine_sort.relationships
     - grape.each do |i|
       .well
@@ -44,7 +44,7 @@
           .col-md-6
             %dt= Relationship.human_attribute_name(:ratio)
             %dd= i.ratio
-    %h3= "В какой бочке нахдится вино"
+    %h3= "В какой бочке находится вино"
     - barrel = @wine_sort.barrels
     - barrel.each do |i|
       .well

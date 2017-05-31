@@ -5,7 +5,7 @@ class CreateBarrels < ActiveRecord::Migration
       t.date :date_of_manufacture, null: false
       t.float :amount, null: false
       t.string :is_empty, null: false
-      t.date :date_of_completion, null: false
+      t.date :date_of_completion
       t.references :wine_sort, index: true, foreign_key: true
 
       t.timestamps null: false

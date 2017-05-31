@@ -1,30 +1,14 @@
 save_form = ->
-  $('.select_form').each ->
-    if ($('select', this).val() == '*Создание нового')
-      $('select', this).remove()
-      $('select', this).next().remove()
-    else if ($('select', this).val() == '*Редактирование')
-      $('select', this).remove()
+  $('.select_form select').each ->
+    if ($(this).val() == '*Создание нового')
+      $(this).next().remove()
+      $(this).remove()
+    else if ($(this).val() == '*Редактирование')
+      $(this).remove()
     else
-      $('select', this).next().remove()
-
-insert_form = ->
-  $('.select_form').each ->
-    f = $(".grape_sort-fieldset", this).attr("data-content")
-    $('select', this).change -> insert_form()
-    if ($('select', this).val() == '*Создание нового')
-      $('.grape_sort-fields', this).html(f)
-      # $('.grape_sort-fields input', this).val('')
-      datepicker_activation()
-    else if ($('select', this).val() == '*Редактирование')
-      $('.grape_sort-fields', this).html(f)
-      datepicker_activation()
-    else
-      $('.grape_sort-fields', this).html("Выбран существующий сорт винограда")
+      $(this).next().remove()
 
 ready = ->
-  insert_form()
-  $("#add_grape_sort_link").click -> insert_form()
   $('#save').on 'click', save_form
 
 

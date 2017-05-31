@@ -39,4 +39,5 @@
   - i = 0
   = f.fields_for(:relationships) do |pf|
     = pf.hidden_field(:id)
-    = render('wine_sorts/relationships_wine_sort_form', pf: pf, i: i+1)
+    - i += 1
+    = render('wine_sorts/relationships_wine_sort_form', pf: pf, i: i)

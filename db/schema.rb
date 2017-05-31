@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170501085108) do
     t.date     "date_of_manufacture", null: false
     t.float    "amount",              null: false
     t.string   "is_empty",            null: false
-    t.date     "date_of_completion",  null: false
+    t.date     "date_of_completion"
     t.integer  "wine_sort_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
