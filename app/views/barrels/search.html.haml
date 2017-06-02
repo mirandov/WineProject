@@ -39,7 +39,7 @@
       .col-md-4
         .form-group
         = Barrel.human_attribute_name(:is_empty)
-        = select_tag 'search[is_empty]', options_for_select(["Пустая","Не путсая"],@old_is_empty),
+        = select_tag 'search[is_empty]', options_for_select((Barrel.all.map{|x| [x.is_empty]}.uniq),@old_is_empty),
           {include_blank: true, class: 'form-control'}
 
 
@@ -124,6 +124,6 @@
               %dt= Barrel.human_attribute_name(:is_empty)
               %dd= barrel.is_empty
               %dt= Barrel.human_attribute_name(:date_of_completion)
-              %dd= barrel.date_of_completion
+              %dd= (barrel.date_of_completion.nil?) ? (' - ') : (barrel.date_of_completion)
               %dt= Barrel.human_attribute_name(:wine_sort_id)
-              %dd= (barrel.wine_sort.nil?) ? ('-') : (barrel.wine_sort.name + ', ' + barrel.wine_sort.type_of_wine)
+              %dd= (barrel.wine_sort.nil?) ? (' - ') : (barrel.wine_sort.name + ', ' + barrel.wine_sort.type_of_wine)

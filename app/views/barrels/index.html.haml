@@ -17,7 +17,7 @@
 
 .row
   - @barrels.each do |barrel|
-    .col-xs-6
+    .col-md-6
       .well
         %dl
           %dt= "Порядковый номер бочки"
@@ -35,11 +35,9 @@
           %dt= Barrel.human_attribute_name(:wine_sort_id)
           %dd= barrel.wine_sort.nil? ? " - " : (barrel.wine_sort.name + ',' + barrel.wine_sort.type_of_wine)
           %dd
-
             = link_to barrel, class: 'btn btn-warning' do
               = fa_icon :eye
               = t('buttons.show')
-
             = link_to edit_barrel_path(barrel), class: 'btn btn-info' do
               = fa_icon :edit
               = t('buttons.edit')

@@ -74,6 +74,9 @@ ru2 = RoleUser.create(role: r2, user: u2)
    amount: '50.0', is_empty: 'Не пустая', date_of_completion: '14.09.2001',
    wine_sort: w1)
 
+  b6 = Barrel.create!(location: 'Испания', date_of_manufacture: '23.07.1999',
+   amount: '50.0', is_empty: 'Пустая')
+
 
  #------------------------------------------------------------------------------#
  #Соотношение
