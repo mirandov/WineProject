@@ -109,10 +109,10 @@
 - if @barrels.size > 0
   .well
     .row
-      .col-md-4
-        .form-group
-          %dl
-          - @barrels.each do |barrel|
+      .form-group
+        %dl
+        - @barrels.each do |barrel|
+          .col-xs-8.col-sm-8.col-lg-6
             .well
               %h5= "Бочка №" + barrel.id.to_s
               %dt= Barrel.human_attribute_name(:location)
